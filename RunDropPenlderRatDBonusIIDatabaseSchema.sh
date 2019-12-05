@@ -1,3 +1,3 @@
 #! /bin/sh
 
-./RunSample.sh ormsamples.DropPenlderRatDBonusIIDatabaseSchema  $@
+./RunSample.sh ormsamples.DropPenlderRatDBonusIIDatabaseSchema

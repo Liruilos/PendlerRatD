@@ -1,3 +1,3 @@
 #! /bin/sh
 
-./RunSample.sh ormsamples.CreatePenlderRatDBonusIIData  $@
+./RunSample.sh ormsamples.CreatePenlderRatDBonusIIData

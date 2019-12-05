@@ -1,3 +1,3 @@
 #! /bin/sh
 
-./RunSample.sh ormsamples.DeletePenlderRatDBonusIIData  $@
+./RunSample.sh ormsamples.DeletePenlderRatDBonusIIData

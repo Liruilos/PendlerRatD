@@ -1,3 +1,3 @@
 #! /bin/sh
 
-./RunSample.sh ormsamples.ListPenlderRatDBonusIIData  $@
+./RunSample.sh ormsamples.ListPenlderRatDBonusIIData

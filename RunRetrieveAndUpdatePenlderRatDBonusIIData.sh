@@ -1,3 +1,3 @@
 #! /bin/sh
 
-./RunSample.sh ormsamples.RetrieveAndUpdatePenlderRatDBonusIIData  $@
+./RunSample.sh ormsamples.RetrieveAndUpdatePenlderRatDBonusIIData

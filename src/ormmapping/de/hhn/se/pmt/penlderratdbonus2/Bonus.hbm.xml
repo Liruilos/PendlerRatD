@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Christopher Meyer(Hochschule Heilbronn)
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="de.hhn.se.pmt.penlderratdbonus2.Bonus" table="Bonus" lazy="false">
+		<id name="name" column="Name" type="string">
+			<generator class="assigned">
+			</generator>
+		</id>
+		<many-to-one name="auszahlender" cascade="lock" column="ArbeitgeberEmail" class="de.hhn.se.pmt.penlderratdbonus2.Arbeitgeber" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<property name="gesammeltePunkte" column="GesammeltePunkte" type="integer" length="10" not-null="true" lazy="false"/>
+		<property name="eingelöstePunkte" column="EingelöstePunkte" type="integer" length="10" not-null="true" lazy="false"/>
+		<property name="belohnungVerfügbar" column="BelohnungVerfügbar" type="boolean" length="1" not-null="true" lazy="false"/>
+		<set name="ORM_Prüfer" table="Administrator_Bonus" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="BonusName" not-null="true"/>
+			<many-to-many column="AdministratorEmail" class="de.hhn.se.pmt.penlderratdbonus2.Administrator">
+			</many-to-many>
+		</set>
+		<set name="ORM_Kunde" table="Pendler_Bonus" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="BonusName" not-null="true"/>
+			<many-to-many column="PendlerEmail" class="de.hhn.se.pmt.penlderratdbonus2.Pendler">
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

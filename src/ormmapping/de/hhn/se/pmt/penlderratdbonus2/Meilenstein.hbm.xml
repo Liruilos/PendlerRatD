@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Christopher Meyer(Hochschule Heilbronn)
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="de.hhn.se.pmt.penlderratdbonus2.Meilenstein" table="Meilenstein" lazy="false">
+		<id name="name" column="Name" type="string">
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="meilenstein" column="Meilenstein" type="integer" length="10" not-null="true" lazy="false"/>
+		<set name="ORM_Teilnehmer" table="Pendler_Meilenstein" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="MeilensteinName" not-null="true"/>
+			<many-to-many column="PendlerEmail" class="de.hhn.se.pmt.penlderratdbonus2.Pendler">
+			</many-to-many>
+		</set>
+		<set name="ORM_Ersteller" table="Administrator_Meilenstein" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="MeilensteinName" not-null="true"/>
+			<many-to-many column="AdministratorEmail" class="de.hhn.se.pmt.penlderratdbonus2.Administrator">
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

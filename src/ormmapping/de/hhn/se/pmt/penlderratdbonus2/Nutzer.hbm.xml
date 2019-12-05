@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Christopher Meyer(Hochschule Heilbronn)
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="de.hhn.se.pmt.penlderratdbonus2.Nutzer" abstract="true" lazy="false">
+		<id name="email" column="Email" type="string">
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="password" column="Password" type="string" length="255" not-null="false" lazy="false"/>
+		<union-subclass name="de.hhn.se.pmt.penlderratdbonus2.Partner" abstract="true" lazy="false">
+			<property name="anzahlBoni" column="AnzahlBoni" type="integer" length="10" not-null="true" lazy="false"/>
+			<property name="ausgezahltPunkte" column="AusgezahltPunkte" type="long" length="20" not-null="true" lazy="false"/>
+			<property name="unternehmenName" column="UnternehmenName" type="string" length="255" not-null="false" lazy="false"/>
+			<union-subclass name="de.hhn.se.pmt.penlderratdbonus2.DrittUnternehmen" table="DrittUnternehmen" lazy="false">
+				<set name="ORM_Verantwortlicher" table="Administrator_DrittUnternehmen" lazy="true" cascade="save-update,lock" inverse="true">
+					<key column="DrittUnternehmenEmail" not-null="true"/>
+					<many-to-many column="AdministratorEmail" class="de.hhn.se.pmt.penlderratdbonus2.Administrator">
+					</many-to-many>
+				</set>
+			</union-subclass>
+			<union-subclass name="de.hhn.se.pmt.penlderratdbonus2.Arbeitgeber" table="Arbeitgeber" lazy="false">
+				<set name="ORM_Begleiter" table="Administrator_Arbeitgeber" lazy="true" cascade="save-update,lock" inverse="true">
+					<key column="ArbeitgeberEmail" not-null="true"/>
+					<many-to-many column="AdministratorEmail" class="de.hhn.se.pmt.penlderratdbonus2.Administrator">
+					</many-to-many>
+				</set>
+				<set name="ORM_Angestellter" lazy="true" cascade="save-update,lock" inverse="true">
+					<key column="ArbeitgeberEmail" not-null="false"/>
+					<one-to-many class="de.hhn.se.pmt.penlderratdbonus2.Pendler"/>
+				</set>
+				<set name="ORM_Entlohnung" lazy="true" cascade="save-update,lock" inverse="true">
+					<key column="ArbeitgeberEmail" not-null="true"/>
+					<one-to-many class="de.hhn.se.pmt.penlderratdbonus2.Bonus"/>
+				</set>
+			</union-subclass>
+		</union-subclass>
+		<union-subclass name="de.hhn.se.pmt.penlderratdbonus2.Administrator" table="Administrator" lazy="false">
+			<set name="ORM_Bonifikation" table="Administrator_Bonus" lazy="true" cascade="save-update,lock">
+				<key column="AdministratorEmail" not-null="true"/>
+				<many-to-many column="BonusName" class="de.hhn.se.pmt.penlderratdbonus2.Bonus">
+				</many-to-many>
+			</set>
+			<set name="ORM_User" table="Administrator_Pendler" lazy="true" cascade="save-update,lock">
+				<key column="AdministratorEmail" not-null="true"/>
+				<many-to-many column="PendlerEmail" class="de.hhn.se.pmt.penlderratdbonus2.Pendler">
+				</many-to-many>
+			</set>
+			<set name="ORM_Programmpartner" table="Administrator_DrittUnternehmen" lazy="true" cascade="save-update,lock">
+				<key column="AdministratorEmail" not-null="true"/>
+				<many-to-many column="DrittUnternehmenEmail" class="de.hhn.se.pmt.penlderratdbonus2.DrittUnternehmen">
+				</many-to-many>
+			</set>
+			<set name="ORM_Etappenziel" table="Administrator_Meilenstein" lazy="true" cascade="save-update,lock">
+				<key column="AdministratorEmail" not-null="true"/>
+				<many-to-many column="MeilensteinName" class="de.hhn.se.pmt.penlderratdbonus2.Meilenstein">
+				</many-to-many>
+			</set>
+			<set name="ORM_Anwender" table="Administrator_Arbeitgeber" lazy="true" cascade="save-update,lock">
+				<key column="AdministratorEmail" not-null="true"/>
+				<many-to-many column="ArbeitgeberEmail" class="de.hhn.se.pmt.penlderratdbonus2.Arbeitgeber">
+				</many-to-many>
+			</set>
+		</union-subclass>
+		<union-subclass name="de.hhn.se.pmt.penlderratdbonus2.Pendler" table="Pendler" lazy="false">
+			<property name="name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
+			<property name="vorname" column="Vorname" type="string" length="255" not-null="false" lazy="false"/>
+			<property name="id" column="Id" type="integer" length="10" not-null="true" lazy="false"/>
+			<set name="ORM_Verwalter" table="Administrator_Pendler" lazy="true" cascade="save-update,lock" inverse="true">
+				<key column="PendlerEmail" not-null="true"/>
+				<many-to-many column="AdministratorEmail" class="de.hhn.se.pmt.penlderratdbonus2.Administrator">
+				</many-to-many>
+			</set>
+			<set name="ORM_Belohnung" table="Pendler_Bonus" lazy="true" cascade="save-update,lock">
+				<key column="PendlerEmail" not-null="true"/>
+				<many-to-many column="BonusName" class="de.hhn.se.pmt.penlderratdbonus2.Bonus">
+				</many-to-many>
+			</set>
+			<set name="ORM_Errungenschaft" table="Pendler_Meilenstein" lazy="true" cascade="save-update,lock">
+				<key column="PendlerEmail" not-null="true"/>
+				<many-to-many column="MeilensteinName" class="de.hhn.se.pmt.penlderratdbonus2.Meilenstein">
+				</many-to-many>
+			</set>
+			<many-to-one name="unternehmen" cascade="lock" column="ArbeitgeberEmail" class="de.hhn.se.pmt.penlderratdbonus2.Arbeitgeber" not-null="false" lazy="proxy" access="field">
+			</many-to-one>
+		</union-subclass>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Model quotesql="1" tablecharset="" mysql_version="504" mssql_version="2005" derby_version="106" ingres_version="9">
+  <Entity name="Administrator" Unlogged="false" PKClustered="0">
+    <Column name="Email">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Password">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="DrittUnternehmen" Unlogged="false" PKClustered="0">
+    <Column name="Email">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="AnzahlBoni">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="AusgezahltPunkte">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>16</Type>
+      <Length>20</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UnternehmenName">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Password">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Bonus" Unlogged="false" PKClustered="0">
+    <Column name="Name">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="ArbeitgeberEmail">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Arbeitgeber.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="GesammeltePunkte">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="EingelöstePunkte">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="BelohnungVerfügbar">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>1</Type>
+      <Length>1</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Meilenstein" Unlogged="false" PKClustered="0">
+    <Column name="Name">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Meilenstein">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Pendler" Unlogged="false" PKClustered="0">
+    <Column name="Email">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="ArbeitgeberEmail">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Arbeitgeber.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Password">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Name">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Vorname">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Id">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Arbeitgeber" Unlogged="false" PKClustered="0">
+    <Column name="Email">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="AnzahlBoni">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="AusgezahltPunkte">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>16</Type>
+      <Length>20</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UnternehmenName">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Password">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Administrator_Bonus" Unlogged="false" PKClustered="0">
+    <Column name="AdministratorEmail">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Administrator.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="BonusName">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Bonus.Name</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Administrator_Pendler" Unlogged="false" PKClustered="0">
+    <Column name="AdministratorEmail">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Administrator.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="PendlerEmail">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Pendler.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Pendler_Bonus" Unlogged="false" PKClustered="0">
+    <Column name="PendlerEmail">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Pendler.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="BonusName">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Bonus.Name</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Pendler_Meilenstein" Unlogged="false" PKClustered="0">
+    <Column name="PendlerEmail">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Pendler.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="MeilensteinName">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Meilenstein.Name</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Administrator_DrittUnternehmen" Unlogged="false" PKClustered="0">
+    <Column name="AdministratorEmail">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Administrator.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="DrittUnternehmenEmail">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.DrittUnternehmen.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Administrator_Meilenstein" Unlogged="false" PKClustered="0">
+    <Column name="AdministratorEmail">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Administrator.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="MeilensteinName">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Meilenstein.Name</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Administrator_Arbeitgeber" Unlogged="false" PKClustered="0">
+    <Column name="AdministratorEmail">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Administrator.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="ArbeitgeberEmail">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>de.hhn.se.pmt.penlderratdbonus2.Arbeitgeber.Email</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <ForeignKey name="begutachtet">
+    <ReferenceTable>Administrator_Bonus</ReferenceTable>
+    <ReferencedTable>Administrator</ReferencedTable>
+    <Columns>
+      <Column>AdministratorEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="begutachtet2">
+    <ReferenceTable>Administrator_Bonus</ReferenceTable>
+    <ReferencedTable>Bonus</ReferencedTable>
+    <Columns>
+      <Column>BonusName</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Name</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="verwaltet">
+    <ReferenceTable>Administrator_Pendler</ReferenceTable>
+    <ReferencedTable>Administrator</ReferencedTable>
+    <Columns>
+      <Column>AdministratorEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="verwaltet2">
+    <ReferenceTable>Administrator_Pendler</ReferenceTable>
+    <ReferencedTable>Pendler</ReferencedTable>
+    <Columns>
+      <Column>PendlerEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="angestellt bei">
+    <ReferenceTable>Pendler</ReferenceTable>
+    <ReferencedTable>Arbeitgeber</ReferencedTable>
+    <Columns>
+      <Column>ArbeitgeberEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="beanprucht">
+    <ReferenceTable>Pendler_Bonus</ReferenceTable>
+    <ReferencedTable>Pendler</ReferencedTable>
+    <Columns>
+      <Column>PendlerEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="beanprucht2">
+    <ReferenceTable>Pendler_Bonus</ReferenceTable>
+    <ReferencedTable>Bonus</ReferencedTable>
+    <Columns>
+      <Column>BonusName</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Name</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="erreicht">
+    <ReferenceTable>Pendler_Meilenstein</ReferenceTable>
+    <ReferencedTable>Pendler</ReferencedTable>
+    <Columns>
+      <Column>PendlerEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="erreicht2">
+    <ReferenceTable>Pendler_Meilenstein</ReferenceTable>
+    <ReferencedTable>Meilenstein</ReferencedTable>
+    <Columns>
+      <Column>MeilensteinName</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Name</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="registriert">
+    <ReferenceTable>Administrator_DrittUnternehmen</ReferenceTable>
+    <ReferencedTable>Administrator</ReferencedTable>
+    <Columns>
+      <Column>AdministratorEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="registriert2">
+    <ReferenceTable>Administrator_DrittUnternehmen</ReferenceTable>
+    <ReferencedTable>DrittUnternehmen</ReferencedTable>
+    <Columns>
+      <Column>DrittUnternehmenEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="konfiguriert">
+    <ReferenceTable>Administrator_Meilenstein</ReferenceTable>
+    <ReferencedTable>Administrator</ReferencedTable>
+    <Columns>
+      <Column>AdministratorEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="konfiguriert2">
+    <ReferenceTable>Administrator_Meilenstein</ReferenceTable>
+    <ReferencedTable>Meilenstein</ReferencedTable>
+    <Columns>
+      <Column>MeilensteinName</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Name</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="konfiguriert3">
+    <ReferenceTable>Bonus</ReferenceTable>
+    <ReferencedTable>Arbeitgeber</ReferencedTable>
+    <Columns>
+      <Column>ArbeitgeberEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="berät">
+    <ReferenceTable>Administrator_Arbeitgeber</ReferenceTable>
+    <ReferencedTable>Administrator</ReferencedTable>
+    <Columns>
+      <Column>AdministratorEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="berät2">
+    <ReferenceTable>Administrator_Arbeitgeber</ReferenceTable>
+    <ReferencedTable>Arbeitgeber</ReferencedTable>
+    <Columns>
+      <Column>ArbeitgeberEmail</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Email</Column>
+    </RefColumns>
+  </ForeignKey>
+</Model>

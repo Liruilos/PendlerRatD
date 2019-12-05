@@ -1,3 +1,3 @@
-Engin#! /bin/sh
+#! /bin/sh
 
 ./RunSample.sh ormsamples.DropPenlderRatDBonusIIDatabaseSchema  $@
